@@ -1,11 +1,11 @@
 CREATE TABLE department (
     id INTEGER AUTO_INCREMENT  PRIMARY KEY,
-    VARCHAR (40)
+    VARCHAR (30)
 );
 
 CREATE TABLE roles(
     department_id INTEGER,
-    title VARCHAR(40),
+    title VARCHAR(30),
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     salary DECIMAL,
     FOREIGN KEY (department_id)

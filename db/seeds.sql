@@ -35,23 +35,31 @@ VALUE
 ('Carl','Andersen', '8','3'),
 
 
-SELECT
+SELECT 
 
-deparment.department_name
-AS Department
+    deparment.department_name AS Department
+    
+    roles.salaries AS Salaries,
+    
+    roles.id AS Id,
+    
+    employees.first_name AS First_Name,
+    
+    employees.last_name AS Last_Name,
+    
+    roles.title AS Title,
 
-roles.salaries
-AS Salaries
+    employees.id AS Id,
 
-roles.id
-AS Id,
+    department.department_name AS Department,
 
-employees.first_name
-AS First_Name,
+    CONCAT(manager.first_name, ' ', manager.last_name) AS Manager
+    FROM employees 
 
-employees.last_name
-AS Last_Name,
+    LEFT JOIN roles on employees.role_id = roles.id 
 
-roles.title
-AS Title,
+    LEFT JOIN department on roles.department_id = department.id 
 
+    LEFT JOIN employees manager on manager.id = employees.manager_id 
+
+    ORDER BY department_name ASC;
