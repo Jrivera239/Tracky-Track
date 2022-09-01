@@ -16,6 +16,39 @@ const start = () => {
                 case 'Add Employee':
                     addEmployee()
                     break;
-                case 'Remove Employee'
+                case 'Remove Employee':
+                    RemoveEmployee()
+                    break;
+                case 'View All Employees':
+                ViewAllEmployees()
+                    break;
+                case 'Update Employee Role':
+                    UpdateEmployeeRole()
+                    break;
+                case 'Add Role':
+                    AddRole()
+                    break;
+                case 'Remove Role':
+                    RemoveRole()
+                    break;
+                case 'View All Roles':
+                    ViewAllRoles()
+                    break;
+                case 'Add Department':
+                    AddDepartment()
+                    break;
+                case 'View All Department':
+                    ViewAllDepartment()
+                    break;
+                case 'Remove Department':
+                    RemoveDepartment()
+                    break;
+                case 'End Program':
+                    EndProgram()
+                    break;
+
+
             }
         })
+    }
+
