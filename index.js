@@ -85,13 +85,66 @@ const start = () => {
     LEFT JOIN employees manager on manager.id = employees.manager_id 
     
     ORDER BY department_name ASC;`, 
-   )
+    (err, res) => {
+        if (err) throw err;
+        console.table(res)
+    })}
 
-
-
-
-
+    
+const addEmployee = () => {
     addLog();
-    connection.query()
+    connection.query(`SELECT * FROM roles;`, (err, res) => {
+        if (err) throw err;
+        inquirer.prompt([
+            {
+                name: 'first_name',
+                type: 'input',
+                message: `Enter employee first name:`
+            },
+            {
+                name: 'last_name',
+                type: 'input',
+                message: 'Enter employee last name:'
+            },
+            {
+                name: 'role',
+                type: 'input',
+                message() {
+                    const EmployeeArray = [];
+                    res.forEach(({ title, id }) => {
+                        EmployeeArray.push(id + ' = ' + title);
+                    });
+                    console.log('What is the employee Id number?\n')
+                    return EmployeeArray.join(`\n`)
+                },
+                validate: (answer) => {
+                    if (isNaN(answer)) {
+                        return "Please enter the employee's role id number.";
+                    }
+                    return true;
+                },
+            },
 
- }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
