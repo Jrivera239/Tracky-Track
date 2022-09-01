@@ -10,7 +10,7 @@ VALUE
 ("Human Resources")
 ("Customer Service")
 
-  INSERT INTO  roles (title, salary, department_id)
+  INSERT INTO  roles (title, salaries, department_id)
   VALUE
 
  ("Sales Director",95000,1)
@@ -35,4 +35,23 @@ VALUE
 ('Carl','Andersen', '8','3'),
 
 
+SELECT
+
+deparment.department_name
+AS Department
+
+roles.salaries
+AS Salaries
+
+roles.id
+AS Id,
+
+employees.first_name
+AS First_Name,
+
+employees.last_name
+AS Last_Name,
+
+roles.title
+AS Title,
 
