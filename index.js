@@ -17,7 +17,8 @@ function startPrompt() {
                 "View all roles",
                 "Add role",
                 "View all departments",
-                "Add department"
+                "Add department",
+                "quit"
             ]
         }
     ]).then(function(val){
@@ -51,6 +52,8 @@ function startPrompt() {
               case 'End Program':
                 endProgram()
                 break;
+                default:
+                  quit();
             }
     })
 }
