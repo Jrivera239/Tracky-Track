@@ -1,3 +1,7 @@
+DROP TABLE IF EXISTS roles;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS employees;
+
 CREATE TABLE department (
     id INTEGER AUTO_INCREMENT  PRIMARY KEY,
     VARCHAR (30)
@@ -21,3 +25,4 @@ CREATE TABLE employee (
     FOREIGN KEY (role_id) REFERENCES role_id,
     FOREIGN KEY (manager_id) REFERENCES employee (id)
 );
+
