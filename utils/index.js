@@ -4,7 +4,9 @@ require("console.table");
 
 class Organization {
   constructor() {}
-  //initiates program
+
+  //launch app //
+
   async init() {
     await inquirer
       .prompt([
@@ -36,3 +38,122 @@ class Organization {
         }
       });
   }
+
+  //displays all employees //
+
+  viewAllEmployees() {
+    const query = `SELECT * FROM employee LEFT JOIN roles ON employee.roles_id = roles.id LEFT JOIN department ON department.id = roles.department_id;`;
+
+    db.query(query, (err, res) => {
+      if (err) throw err;
+      console.table(res);
+      this.init();
+    });
+  }
+  addEmployee() {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "first",
+          message: "Name of Employee?",
+        },
+        {
+          type: "input",
+          name: "last",
+          message: "Employee's last name?",
+        },
+        {
+          type: "number",
+          name: "roles_id",
+          message: "What is the id role?",
+        },
+      ])
+      .then(({ first, last, roles_id }) => {
+        const query = `INSERT INTO employee (first_name, last_name, roles_id) VALUES (?,?,?);`;
+        const params = [first, last, roles_id];
+
+        db.query(query, params, (err, res) => {
+          if (err) throw err;
+          this.viewAllEmployees();
+          this.init();
+        });
+      });
+  }
+
+  viewRoles() {
+    const query = `SELECT * FROM roles`;
+
+    db.query(query, (err, res) => {
+      if (err) throw err;
+      console.table(res);
+      this.init();
+    });
+  }
+
+  addRoles() {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "title",
+          message: "What is the name the role?",
+        },
+        {
+          type: "input",
+          name: "salary",
+          message: "What is the salary?",
+        },
+        {
+          type: "number",
+          name: "department",
+          message: "What is the id  the department?",
+        },
+      ])
+      .then(({ title, salary, department }) => {
+        const query = `INSERT INTO roles (title, salary, department_id) VALUES (?,?,?);`;
+        const params = [title, salary, department];
+
+        db.query(query, params, (err, res) => {
+          if (err) throw err;
+          this.viewRoles();
+          this.init();
+        });
+      });
+  }
+
+  viewDepartment() {
+    const query = `SELECT * FROM department;`;
+
+    db.query(query, (err, res) => {
+      if (err) throw err;
+      console.table(res);
+      this.init();
+    });
+  }
+
+  addDepartment() {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "title",
+          message: "What is the name of the department?",
+        },
+      ])
+      .then(({ title }) => {
+        const query = `INSERT INTO department (title) VALUES (?)`;
+        const params = [title];
+
+        db.query(query, params, (err, res) => {
+          if (err) throw err;
+          this.viewDepartment();
+          this.init();
+        });
+      });
+  }
+
+  getEmployees() {}
+}
+
+module.exports = Organization;
