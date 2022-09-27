@@ -5,8 +5,10 @@ const db = mysql2.createConnection ({
     port:3306,
     user: 'root',
     password: 'qwer1234',
-    database: 'employee'
+    database: 'employee',
 },
 console.log('Welcome!')
 );
+
+
 module.exports = db;
