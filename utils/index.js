@@ -153,6 +153,40 @@ class Organization {
       });
   }
 
+  const removeDepartment = () => {
+    connection.query(`SELECT * FROM departments;`,
+    (err, res) => {
+        if (err) throw err;
+        inquirer.prompt([
+            {
+                name: `departments`,
+                type: `rawlist`,
+                message: `Which department would you like to remove? \n`,
+                choices() {
+                    const departmentArray = [];
+                    res.forEach(({ department_name }) => {
+                        departmentArray.push(department_name);
+                    });
+                    return departmentArray;
+                },
+            },
+        ])
+            .then((answer) => {
+                connection.query(`DELETE FROM departments WHERE ?`,
+                {
+                    department_name: (answer.departments)
+                },
+                (err, res) => {
+                    if (err) throw err;
+                    console.log(`${res.affectedRows} Deleted \n`)
+                    viewAllDepartments();
+                }
+                )
+            })
+    }
+    )
+};
+
   getEmployees() {}
 }
 
