@@ -153,7 +153,7 @@ class Organization {
       });
   }
 
-  const removeDepartment = () => {
+  removeDepartment = () => {
     connection.query(`SELECT * FROM departments;`,
     (err, res) => {
         if (err) throw err;
