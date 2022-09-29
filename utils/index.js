@@ -33,7 +33,7 @@ class Organization {
         if (userChoice === "View all Departments") this.viewDepartment();
         if (userChoice === "Add Department") this.addDepartment();
         if (userChoice === "Exit") {
-          console.log("Bye");
+          console.log("lata");
           return;
         }
       });
