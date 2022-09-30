@@ -26,12 +26,12 @@ class Organization {
         },
       ])
       .then(({ userChoice }) => {
+                if (userChoice === "Add Employee") this.addEmployee();
         if (userChoice === "View All Employees") this.viewAllEmployees();
-        if (userChoice === "Add Employee") this.addEmployee();
-        if (userChoice === "View All Roles") this.viewRoles();
         if (userChoice === "Add Role") this.addRoles();
-        if (userChoice === "View all Departments") this.viewDepartment();
+        if (userChoice === "View All Roles") this.viewRoles();
         if (userChoice === "Add Department") this.addDepartment();
+        if (userChoice === "View all Departments") this.viewDepartment();
         if (userChoice === "Exit") {
           console.log("lata");
           return;

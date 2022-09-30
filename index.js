@@ -1,7 +1,7 @@
-const db = require("./db/connection");
+const connection = require("./db/connection");
 const Organization = require("./utils/index");
 
-db.connect((err) => {
+connection.connect((err) => {
   if (err) throw err;
   console.log("Connected");
   const database = new Organization();
