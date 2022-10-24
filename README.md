@@ -9,9 +9,3 @@ To create a database which contains the information organized by the employe inf
 
 ## Contact Info
 
--[Github:jrivera239] (#github-jrivera239)
-
--[Email:joelriveraa1989@Yahoo.com] (#email-joelrivera1989@yahoocom)
-
--[LinkedIn] (#linkedin)
-
