@@ -7,5 +7,3 @@ This is the database for the employee tracker. You will be able to view and add 
 
 To create a database which contains the information organized by the employe information, department, and job. Information will be displayed in Command prompt.
 
-## Contact Info
-
