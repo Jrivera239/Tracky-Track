@@ -3,7 +3,7 @@ const Organization = require("./utils/index");
 
 connection.connect((err) => {
   if (err) throw err;
-  console.log("Connected");
+  console.log("database connected");
   const database = new Organization();
   database.init();
 }

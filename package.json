@@ -1,5 +1,5 @@
 {
-  "name": "module-12-tracking-tracking",
+  "name": "tracky-track",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,21 +7,28 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "console.table": "^0.10.0",
-    "express": "^4.18.1",
-    "inquirer": "^8.2.4",
-    "mysql2": "^2.3.3"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jrivera239/Tracky-Track.git"
   },
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Jrivera239/Tracky-Track/issues"
   },
-  "homepage": "https://github.com/Jrivera239/Tracky-Track#readme"
+  "homepage": "https://github.com/Jrivera239/Tracky-Track#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "express": "^4.18.1",
+    "inquirer": "^8.2.4"
+    "mysql2": "^2.3.3"
+  }
 }
+
+  
+  
+  
+  
+  
+  
+  
